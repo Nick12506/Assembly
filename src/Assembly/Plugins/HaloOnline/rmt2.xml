@@ -1,41 +1,86 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <plugin game="HaloOnline" baseSize="0x84">
 	<!-- Automatically generated plugin -->
 	<revisions>
 		<revision author="Assembly" version="1">Generated plugin from scratch.</revision>
 		<revision author="Lord Zedd" version="2">Pasta.</revision>
 	</revisions>
-	<tagRef name="Vertex Shader" offset="0x0" visible="true" />
-	<tagRef name="Pixel Shader" offset="0x10" visible="true" />
-	<undefined name="Unknown" offset="0x20" visible="false" />
-	<reflexive name="Unknown" offset="0x24" visible="false" entrySize="0x2">
-		<int16 name="Unknown" offset="0x0" visible="false" />
+	<tagRef name="Vertex Shader" offset="0x0" visible="false" />
+	<tagRef name="Pixel Shader" offset="0x10" visible="false" />
+	<bitfield32 name="DrawModeBitmask" offset="0x20" visible="false">
+		<bit name="Bit00 " index="0" />
+		<bit name="Bit01 diffuse" index="1" />
+		<bit name="Bit02 " index="2" />
+		<bit name="Bit03 selfIllum" index="3" />
+		<bit name="Bit04 selfIllum2" index="4" />
+		<bit name="Bit05 shading" index="5" />
+		<bit name="Bit06 " index="6" />
+		<bit name="Bit07 " index="7" />
+		<bit name="Bit08 shading" index="8" />
+		<bit name="Bit09 " index="9" />
+		<bit name="Bit10 shadow" index="10" />
+		<bit name="Bit11 " index="11" />
+		<bit name="Bit12 camo" index="12" />
+		<bit name="Bit13 " index="13" />
+		<bit name="Bit14 " index="14" />
+		<bit name="Bit15 " index="15" />
+		<bit name="Bit16 " index="16" />
+		<bit name="Bit17 " index="17" />
+		<bit name="Bit18 " index="18" />
+		<bit name="Bit19 " index="19" />
+		<bit name="Bit20 " index="20" />
+		<bit name="Bit21 " index="21" />
+		<bit name="Bit22 " index="22" />
+		<bit name="Bit23 " index="23" />
+		<bit name="Bit24 " index="24" />
+		<bit name="Bit25 " index="25" />
+		<bit name="Bit26 " index="26" />
+		<bit name="Bit27 " index="27" />
+		<bit name="Bit28 " index="28" />
+		<bit name="Bit29 " index="29" />
+		<bit name="Bit30 " index="30" />
+		<bit name="Bit31 " index="31" />
+	</bitfield32>
+	<reflexive name="DrawModes" offset="0x24" visible="false" entrySize="0x2">
+		<int8 name="Unknown3 Index" offset="0x0" visible="true" />
+		<int8 name="Flag" offset="0x1" visible="true" />
 	</reflexive>
-	<reflexive name="Unknown" offset="0x30" visible="false" entrySize="0x1C">
-		<undefined name="Unknown" offset="0x0" visible="false" />
-		<undefined name="Unknown" offset="0x4" visible="false" />
-		<undefined name="Unknown" offset="0x8" visible="false" />
-		<undefined name="Unknown" offset="0xC" visible="false" />
-		<undefined name="Unknown" offset="0x10" visible="false" />
-		<undefined name="Unknown" offset="0x14" visible="false" />
-		<undefined name="Unknown" offset="0x18" visible="false" />
+	<reflexive name="Unknown3" offset="0x30" visible="true" entrySize="0x1C">
+        <uint8 name="Index samplers" offset="0x00" visible="false" />
+		<uint8 name="Count samplers" offset="0x01" visible="false" />
+		<uint8 name="Index no rmsh" offset="0x02" visible="false" />
+		<uint8 name="Count no rmsh" offset="0x03" visible="false" />
+		<uint8 name="Index Vectors constants" offset="0x08" visible="false" />
+		<uint8 name="Count Vectors constants" offset="0x09" visible="true" />
+		<uint8 name="Index rmhg only" offset="0x0A" visible="true" />
+		<uint8 name="Count rmhg only" offset="0x0B" visible="true" />
+		<uint8 name="Index Booleans" offset="0x0C" visible="true" />
+		<uint8 name="Count Booleans" offset="0x0D" visible="true" />
+		<uint8 name="Index Samplers" offset="0x0E" visible="true" />
+		<uint8 name="Count Samplers" offset="0x0F" visible="true" />
+		<uint8 name="Index rmfl only" offset="0x10" visible="true" />
+		<uint8 name="Count rmfl only" offset="0x11" visible="true" />
+		<uint8 name="Index constant" offset="0x14" visible="true" />
+		<uint8 name="Count constant" offset="0x15" visible="true" />
 	</reflexive>
-	<reflexive name="Unknown" offset="0x3C" visible="false" entrySize="0x4">
-		<undefined name="Unknown" offset="0x0" visible="false" />
+	<reflexive name="ArgumentMappings" offset="0x3C" visible="true" entrySize="0x4">
+		<uint16 name="RegisterIndex" offset="0x0" visible="true" />
+		<uint8 name="ArgumentIndex" offset="0x2" visible="true" />
+		<uint8 name="Unknown" offset="0x3" visible="true" />
 	</reflexive>
 	<reflexive name="Arguments" offset="0x48" visible="true" entrySize="0x4">
 		<stringId name="Name" offset="0x0" visible="true" />
 	</reflexive>
-	<reflexive name="Unknown" offset="0x54" visible="false" entrySize="0x4">
-		<stringid name="Unknown" offset="0x0" visible="false" />
+	<reflexive name="Unknown5" offset="0x54" visible="true" entrySize="0x4">
+		<stringid name="Unknown" offset="0x0" visible="true" />
 	</reflexive>
-	<reflexive name="Unknown" offset="0x60" visible="false" entrySize="0x4">
-		<stringid name="Unknown" offset="0x0" visible="false" />
+	<reflexive name="Unknown6" offset="0x60" visible="true" entrySize="0x4">
+		<stringid name="Unknown" offset="0x0" visible="true" />
 	</reflexive>
-	<reflexive name="Shader Maps" offset="0x6C" visible="true" entrySize="0x4">
+	<reflexive name="ShaderMaps" offset="0x6C" visible="true" entrySize="0x4">
 		<stringid name="Name" offset="0x0" visible="true" />
 	</reflexive>
-	<undefined name="Unknown" offset="0x78" visible="false" />
-	<undefined name="Unknown" offset="0x7C" visible="false" />
-	<undefined name="Unknown" offset="0x80" visible="false" />
+	<undefined name="Unknown" offset="0x78" visible="true" />
+	<undefined name="Unknown" offset="0x7C" visible="true" />
+	<undefined name="Unknown" offset="0x80" visible="true" />
 </plugin>
