@@ -30,66 +30,68 @@
 		<bit name="sfx__distort" index="19" />
 	</bitfield32>
 	<reflexive name="Shader Drawmodes" offset="0x24" visible="true" entrySize="0x2">
-		<enum8 name="Pixel Shader Type" offset="0x0" visible="true">
-			<option name="default_ps" value="0x0" />
-			<option name="albedo_ps" value="0x1" />
-			<option name="static_default_ps" value="0x2" />
-			<option name="static_per_pixel_ps" value="0x3" />
-			<option name="static_per_vertex_ps" value="0x4" />
-			<option name="static_sh_ps" value="0x5" />
-			<option name="static_prt_ps" value="0x6" />
-			<option name="static_prt_ps" value="0x7" />
-			<option name="static_prt_ps" value="0x8" />
-			<option name="dynamic_light_ps" value="0x9" />
-			<option name="shadow_generate_ps" value="0xA" />
-			<option name="shadow_apply_ps" value="0xB" />
-			<option name="active_camo_ps" value="0xC" />
-			<option name="lightmap_debug_mode_ps" value="0xD" />
-			<option name="static_per_vertex_color_ps" value="0xE" />
-			<option name="water_tessellation_ps" value="0xF" />
-			<option name="water_shading_ps" value="0x10" />
-			<option name="dynamic_light_cine_ps" value="0x11" />
-			<option name="z_only_ps" value="0x12" />
-			<option name="sfx_distort_ps" value="0x13" />
-		</enum8>
-		<enum8 name="Vertex Shader Type" offset="0x1" visible="true">
-			<option name="default_vs" value="0x0" />
-			<option name="albedo_vs" value="0x1" />
-			<option name="static_default_vs" value="0x2" />
-			<option name="static_per_pixel_vs" value="0x3" />
-			<option name="static_per_vertex_vs" value="0x4" />
-			<option name="static_sh_vs" value="0x5" />
-			<option name="static_prt_vs" value="0x6" />
-			<option name="static_prt_vs" value="0x7" />
-			<option name="static_prt_vs" value="0x8" />
-			<option name="dynamic_light_vs" value="0x9" />
-			<option name="shadow_generate_vs" value="0xA" />
-			<option name="shadow_apply_vs" value="0xB" />
-			<option name="active_camo_vs" value="0xC" />
-			<option name="lightmap_debug_mode_vs" value="0xD" />
-			<option name="static_per_vertex_color_vs" value="0xE" />
-			<option name="water_tessellation_vs" value="0xF" />
-			<option name="water_shading_vs" value="0x10" />
-			<option name="dynamic_light_cine_vs" value="0x11" />
-			<option name="z_only_vs" value="0x12" />
-			<option name="sfx_distort_vs" value="0x13" />
-		</enum8>
+		<packedint16 name="Pixel Shader Type" offset="0x0" visible="true">
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
 	</reflexive>
 	<reflexive name="Drawmode Register Offsets" offset="0x30" visible="false" entrySize="0x1C">
-        <uint16 name="ShaderMap Sampler Registers" offset="0x00" visible="true" />
-		<uint16 name="Unknown Vector Registers" offset="0x02" visible="true" />
-		<uint16 name="Unknown" offset="0x04" visible="true" />
-		<uint16 name="Unknown" offset="0x06" visible="true" />
-		<uint16 name="Arguments Vector Registers" offset="0x08" visible="true" />
-		<uint16 name="Unknown" offset="0x0A" visible="true" />
-		<uint16 name="Global Arguments Vector Registers" offset="0x0C" visible="true" />
-		<uint16 name="Render Buffer Sampler Registers" offset="0x0E" visible="true" />
-		<uint16 name="Unknown" offset="0x10" visible="true" />
-		<uint16 name="Unknown" offset="0x12" visible="true" />
-		<uint16 name="Debug Vector Registers" offset="0x14" visible="true" />
-		<uint16 name="Unknown" offset="0x16" visible="true" />
-		<uint16 name="Unknown" offset="0x18" visible="true" />
-		<uint16 name="Unknown" offset="0x1A" visible="true" />
+		<packedint16 name="Shader Maps" offset="0x0" visible="true"> <!-- Index 0 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown Vectors" offset="0x2" visible="true"> <!-- Index 1 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0x4" visible="true"> <!-- Index 2 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0x6" visible="true"> <!-- Index 3 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Arguments Vectors" offset="0x8" visible="true"> <!-- Index 4 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0xA" visible="true"> <!-- Index 5 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Global Arguments" offset="0xC" visible="true"> <!-- Index 6 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Render Method Extern" offset="0xE" visible="true"> <!-- Index 7 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0x10" visible="true"> <!-- Index 8 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0x12" visible="true"> <!-- Index 9 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Render Method Extern Vectors" offset="0x14" visible="true"> <!-- Index 10 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0x16" visible="true"> <!-- Index 11 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0x18" visible="true"> <!-- Index 12 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
+		<packedint16 name="Unknown" offset="0x1A" visible="true"> <!-- Index 13 -->
+			<int name="offset" offset="0" count="10" />
+			<int name="count" offset="10" count="6" />
+		</packedint16>
 	</reflexive>
 	<reflexive name="ArgumentMappings" offset="0x3C" visible="true" entrySize="0x4">
 		<uint16 name="RegisterIndex" offset="0x0" visible="true" />
