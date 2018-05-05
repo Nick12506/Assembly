@@ -36,7 +36,7 @@
 		</packedint16>
 	</reflexive>
 	<reflexive name="Drawmode Register Offsets" offset="0x30" visible="false" entrySize="0x1C">
-		<packedint16 name="Shader Maps" offset="0x0" visible="true"> <!-- Index 0 -->
+		<packedint16 name="Textures Samplers" offset="0x0" visible="true"> <!-- Index 0 -->
 			<int name="offset" offset="0" count="10" />
 			<int name="count" offset="10" count="6" />
 		</packedint16>
@@ -64,7 +64,7 @@
 			<int name="offset" offset="0" count="10" />
 			<int name="count" offset="10" count="6" />
 		</packedint16>
-		<packedint16 name="Render Method Extern" offset="0xE" visible="true"> <!-- Index 7 -->
+		<packedint16 name="Render Method Extern Generic" offset="0xE" visible="true"> <!-- Index 7 -->
 			<int name="offset" offset="0" count="10" />
 			<int name="count" offset="10" count="6" />
 		</packedint16>
@@ -107,7 +107,7 @@
 	<reflexive name="Global Arguments" offset="0x60" visible="true" entrySize="0x4">
 		<stringid name="Name" offset="0x0" visible="true" />
 	</reflexive>
-	<reflexive name="ShaderMaps" offset="0x6C" visible="true" entrySize="0x4">
+	<reflexive name="Textures" offset="0x6C" visible="true" entrySize="0x4">
 		<stringid name="Name" offset="0x0" visible="true" />
 	</reflexive>
 	<undefined name="Unknown" offset="0x78" visible="false" />
