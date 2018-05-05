@@ -524,5 +524,10 @@ namespace Assembly.Metro.Controls.PageTemplates.Games.Components.MetaData
 				}
 			}
 		}
-	}
+
+        public void VisitPackedInt(PackedIntData field)
+        {
+
+        }
+    }
 }

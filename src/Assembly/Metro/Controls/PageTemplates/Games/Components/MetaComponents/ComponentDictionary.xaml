@@ -51,10 +51,13 @@
 	<DataTemplate DataType="{x:Type types:TagRefData}">
 		<MetaComps:tagValue Opacity="{Binding Opacity}" />
 	</DataTemplate>
-	<DataTemplate DataType="{x:Type types:BitfieldData}">
-		<MetaComps:Bitfield Opacity="{Binding Opacity}" />
-	</DataTemplate>
-	<DataTemplate DataType="{x:Type types:EnumData}">
+    <DataTemplate DataType="{x:Type types:BitfieldData}">
+        <MetaComps:Bitfield Opacity="{Binding Opacity}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type types:PackedIntData}">
+        <MetaComps:packedintValue Opacity="{Binding Opacity}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type types:EnumData}">
 		<MetaComps:Enumeration Opacity="{Binding Opacity}" />
 	</DataTemplate>
 

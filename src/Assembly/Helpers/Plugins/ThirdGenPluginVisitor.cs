@@ -21,8 +21,9 @@ namespace Assembly.Helpers.Plugins
 		private readonly bool _showInvisibles;
 		private readonly Trie _stringIDTrie;
 		private readonly TagHierarchy _tags;
-		private BitfieldData _currentBitfield;
-		private EnumData _currentEnum;
+        private PackedIntData _currentPackedInt;
+        private BitfieldData _currentBitfield;
+        private EnumData _currentEnum;
 		private ReflexiveData _currentReflexive;
 
 		public bool ShowComments
@@ -364,5 +365,51 @@ namespace Assembly.Helpers.Plugins
 
             Values.Add(wrappedValue);*/
 		}
-	}
+
+        #region PackedInt
+
+        public bool EnterPackedInt8(string name, uint offset, bool visible, uint pluginLine)
+        {
+            return EnterPackedInt(PackedIntType.PackedInt8, name, offset, visible, pluginLine);
+        }
+
+        public bool EnterPackedInt16(string name, uint offset, bool visible, uint pluginLine)
+        {
+            return EnterPackedInt(PackedIntType.PackedInt16, name, offset, visible, pluginLine);
+        }
+
+        public bool EnterPackedInt32(string name, uint offset, bool visible, uint pluginLine)
+        {
+            return EnterPackedInt(PackedIntType.PackedInt32, name, offset, visible, pluginLine);
+        }
+
+        public void VisitPackedInt(string name, int offset, int count, bool signed)
+        {
+            if (_currentPackedInt != null)
+                _currentPackedInt.DefineInt(name, offset, count, signed);
+            else
+                throw new InvalidOperationException("Cannot add a bit to a non-existant PackedInt");
+        }
+
+        public void LeavePackedInt()
+        {
+            if (_currentPackedInt == null)
+                throw new InvalidOperationException("Cannot leave a PackedInt if one isn't active");
+
+            AddValue(_currentPackedInt);
+            _currentPackedInt = null;
+        }
+
+        private bool EnterPackedInt(PackedIntType type, string name, uint offset, bool visible, uint pluginLine)
+        {
+            if (visible || _showInvisibles)
+            {
+                _currentPackedInt = new PackedIntData(name, offset, 0, type, pluginLine);
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
+    }
 }

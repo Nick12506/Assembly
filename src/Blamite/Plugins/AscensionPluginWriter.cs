@@ -271,5 +271,38 @@ namespace Blamite.Plugins
 			WriteValueStart(element, name, offset, visible);
 			_output.WriteEndElement();
 		}
-	}
+
+        public bool EnterPackedInt8(string name, uint offset, bool visible, uint pluginLine)
+        {
+            WriteValueStart("packedint32", name, offset, visible);
+            return true;
+        }
+
+        public bool EnterPackedInt16(string name, uint offset, bool visible, uint pluginLine)
+        {
+            WriteValueStart("packedint32", name, offset, visible);
+            return true;
+        }
+
+        public bool EnterPackedInt32(string name, uint offset, bool visible, uint pluginLine)
+        {
+            WriteValueStart("packedint32", name, offset, visible);
+            return true;
+        }
+
+        public void VisitPackedInt(string name, int offset, int count, bool signed)
+        {
+            _output.WriteStartElement("option");
+            _output.WriteAttributeString("name", name);
+            _output.WriteAttributeString("offset", offset.ToString(CultureInfo.InvariantCulture));
+            _output.WriteAttributeString("count", count.ToString(CultureInfo.InvariantCulture));
+            _output.WriteAttributeString("signed", signed.ToString(CultureInfo.InvariantCulture));
+            _output.WriteEndElement();
+        }
+
+        public void LeavePackedInt()
+        {
+            _output.WriteEndElement();
+        }
+    }
 }

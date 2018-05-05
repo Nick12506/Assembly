@@ -29,6 +29,7 @@ namespace Assembly.Metro.Controls.PageTemplates.Games.Components.MetaData
 		private static readonly DegreeValue _degreeControl = new DegreeValue();
 		private static readonly ColourValue _colourValue = new ColourValue();
 		private static readonly Shader _shader = new Shader();
+        private static readonly packedintValue _packedintControl = new packedintValue();
 		private double _totalWidth;
 
 		public double TotalWidth
@@ -40,6 +41,11 @@ namespace Assembly.Metro.Controls.PageTemplates.Games.Components.MetaData
 		{
 			AddWidth(_bitfieldControl.Width);
 		}
+
+        public void VisitPackedInt(PackedIntData field)
+        {
+            AddWidth(_packedintControl.Width);
+        }
 
 		public void VisitComment(CommentData field)
 		{

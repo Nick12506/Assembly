@@ -133,29 +133,39 @@ namespace Blamite.Plugins
 		/// <param name="pluginLine">The line in the plugin this entry is found.</param>
 		void VisitColorF(string name, uint offset, bool visible, string format, uint pluginLine);
 
-		// These are called whenever a bitfield is found in the plugin.
-		// Return false from one of these methods to skip over the
-		// bits in the bitfield.
-		bool EnterBitfield8(string name, uint offset, bool visible, uint pluginLine);
-		bool EnterBitfield16(string name, uint offset, bool visible, uint pluginLine);
-		bool EnterBitfield32(string name, uint offset, bool visible, uint pluginLine);
+        // These are called whenever a bitfield is found in the plugin.
+        // Return false from one of these methods to skip over the
+        // bits in the bitfield.
+        bool EnterBitfield8(string name, uint offset, bool visible, uint pluginLine);
+        bool EnterBitfield16(string name, uint offset, bool visible, uint pluginLine);
+        bool EnterBitfield32(string name, uint offset, bool visible, uint pluginLine);
 
-		/// <summary>
-		///     Called when a bit definition is encountered inside a bitfield.
-		/// </summary>
-		/// <param name="name">The bit's name.</param>
-		/// <param name="index">The bit's zero-based index (0 = LSB).</param>
-		void VisitBit(string name, int index);
+        /// <summary>
+        ///     Called when a bit definition is encountered inside a bitfield.
+        /// </summary>
+        /// <param name="name">The bit's name.</param>
+        /// <param name="index">The bit's zero-based index (0 = LSB).</param>
+        void VisitBit(string name, int index);
 
-		/// <summary>
-		///     Called when a bitfield definition is exited.
-		/// </summary>
-		void LeaveBitfield();
+        /// <summary>
+        ///     Called when a bitfield definition is exited.
+        /// </summary>
+        void LeaveBitfield();
 
-		// These are called whenever an enum is found in the plugin.
-		// Return false from one of these methods to skip over the
-		// options in the enum.
-		bool EnterEnum8(string name, uint offset, bool visible, uint pluginLine);
+        bool EnterPackedInt8(string name, uint offset, bool visible, uint pluginLine);
+        bool EnterPackedInt16(string name, uint offset, bool visible, uint pluginLine);
+        bool EnterPackedInt32(string name, uint offset, bool visible, uint pluginLine);
+        void VisitPackedInt(string name, int offset, int count, bool signed);
+
+        /// <summary>
+        ///     Called when a packed integer definition is exited.
+        /// </summary>
+        void LeavePackedInt();
+
+        // These are called whenever an enum is found in the plugin.
+        // Return false from one of these methods to skip over the
+        // options in the enum.
+        bool EnterEnum8(string name, uint offset, bool visible, uint pluginLine);
 		bool EnterEnum16(string name, uint offset, bool visible, uint pluginLine);
 		bool EnterEnum32(string name, uint offset, bool visible, uint pluginLine);
 

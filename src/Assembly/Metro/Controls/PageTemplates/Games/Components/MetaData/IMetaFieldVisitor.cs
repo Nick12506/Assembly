@@ -24,5 +24,6 @@
 		void VisitColourInt(ColourData field);
 		void VisitColourFloat(ColourData field);
 		void VisitShaderRef(ShaderRef field);
-	}
+        void VisitPackedInt(PackedIntData field);
+    }
 }

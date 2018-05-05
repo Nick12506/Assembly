@@ -130,8 +130,11 @@ namespace Assembly.Metro.Controls.PageTemplates.Games.Components
 			RegisterMetaTag("enum32", "8-bit enumeration value");
 			RegisterMetaTag("vector3", "3D vector of 32-bit floating point values");
 			RegisterMetaTag("degree", "Radian value that should be converted to/from degrees");
+            RegisterMetaTag("packedint8", "8-bit bitfield struct");
+            RegisterMetaTag("packedint16", "16-bit bitfield struct");
+            RegisterMetaTag("packedint32", "32-bit bitfield struct");
 
-			CompletableXMLTag color = RegisterMetaTag("color", "Integer color value");
+            CompletableXMLTag color = RegisterMetaTag("color", "Integer color value");
 			CompletableXMLTag colorf = RegisterMetaTag("colorf", "Floating-point color value");
 			var colorFormat = new CompletableXMLAttribute("format",
 				"A string containing the characters 'a', 'r', 'g', and 'b' which describes the format of the color (required)");

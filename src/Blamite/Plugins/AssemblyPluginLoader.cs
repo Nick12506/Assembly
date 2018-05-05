@@ -241,7 +241,25 @@ namespace Blamite.Plugins
 					ReadUnicList(reader, name, offset, visible, visitor, pluginLine);
 					break;
 
-				default:
+                case "packedint8":
+                    if (visitor.EnterPackedInt8(name, offset, visible, pluginLine))
+                        ReadPackedInts(reader, visitor);
+                    else
+                        reader.Skip();
+                    break;
+                case "packedint16":
+                    if (visitor.EnterPackedInt16(name, offset, visible, pluginLine))
+                        ReadPackedInts(reader, visitor);
+                    else
+                        reader.Skip();
+                    break;
+                case "packedint32":
+                    if (visitor.EnterPackedInt32(name, offset, visible, pluginLine))
+                        ReadPackedInts(reader, visitor);
+                    else
+                        reader.Skip();
+                    break;
+                default:
 					throw new ArgumentException("Unknown element \"" + elementName + "\"." + PositionInfo(reader));
 			}
 		}
@@ -348,31 +366,64 @@ namespace Blamite.Plugins
 			visitor.VisitUtf16(name, offset, visible, size, pluginLine);
 		}
 
-		private static void ReadBits(XmlReader reader, IPluginVisitor visitor)
-		{
-			XmlReader subtree = reader.ReadSubtree();
+        private static void ReadBits(XmlReader reader, IPluginVisitor visitor)
+        {
+            XmlReader subtree = reader.ReadSubtree();
 
-			subtree.ReadStartElement();
-			while (subtree.ReadToNextSibling("bit"))
-				ReadBit(subtree, visitor);
+            subtree.ReadStartElement();
+            while (subtree.ReadToNextSibling("bit"))
+                ReadBit(subtree, visitor);
 
-			visitor.LeaveBitfield();
-		}
+            visitor.LeaveBitfield();
+        }
 
-		private static void ReadBit(XmlReader reader, IPluginVisitor visitor)
-		{
-			string name = "Unknown";
+        private static void ReadBit(XmlReader reader, IPluginVisitor visitor)
+        {
+            string name = "Unknown";
 
-			if (reader.MoveToAttribute("name"))
-				name = reader.Value;
-			if (!reader.MoveToAttribute("index"))
-				throw new ArgumentException("Bit definitions must have an index." + PositionInfo(reader));
-			int index = ParseInt(reader.Value);
+            if (reader.MoveToAttribute("name"))
+                name = reader.Value;
+            if (!reader.MoveToAttribute("index"))
+                throw new ArgumentException("Bit definitions must have an index." + PositionInfo(reader));
+            int index = ParseInt(reader.Value);
 
-			visitor.VisitBit(name, index);
-		}
+            visitor.VisitBit(name, index);
+        }
 
-		private static void ReadOptions(XmlReader reader, IPluginVisitor visitor)
+        private static void ReadPackedInts(XmlReader reader, IPluginVisitor visitor)
+        {
+            XmlReader subtree = reader.ReadSubtree();
+
+            subtree.ReadStartElement();
+            while (subtree.ReadToNextSibling("int"))
+                ReadPackedInt(subtree, visitor);
+
+            visitor.LeavePackedInt();
+        }
+
+        private static void ReadPackedInt(XmlReader reader, IPluginVisitor visitor)
+        {
+            string name = "Unknown";
+
+            if (reader.MoveToAttribute("name"))
+                name = reader.Value;
+            if (!reader.MoveToAttribute("offset"))
+                throw new ArgumentException("Packed int definitions must have an offset." + PositionInfo(reader));
+            int offset = ParseInt(reader.Value);
+            if (!reader.MoveToAttribute("count"))
+                throw new ArgumentException("Packed int definitions must have an count." + PositionInfo(reader));
+            int count = ParseInt(reader.Value);
+
+            bool signed = false;
+            if(reader.MoveToAttribute("signed"))
+            {
+                signed = ParseBool(reader.Value);
+            }
+
+            visitor.VisitPackedInt(name, offset, count, signed);
+        }
+
+        private static void ReadOptions(XmlReader reader, IPluginVisitor visitor)
 		{
 			XmlReader subtree = reader.ReadSubtree();
 

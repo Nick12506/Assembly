@@ -452,5 +452,22 @@ namespace Assembly.Metro.Controls.PageTemplates.Games.Components.MetaData
 		{
 			_reader.SeekTo(BaseOffset + offset);
 		}
-	}
+
+        public void VisitPackedInt(PackedIntData field)
+        {
+            SeekToOffset(field.Offset);
+            switch (field.Type)
+            {
+                case PackedIntType.PackedInt8:
+                    field.Value = _reader.ReadByte();
+                    break;
+                case PackedIntType.PackedInt16:
+                    field.Value = _reader.ReadUInt16();
+                    break;
+                case PackedIntType.PackedInt32:
+                    field.Value = _reader.ReadUInt32();
+                    break;
+            }
+        }
+    }
 }

@@ -252,5 +252,15 @@ namespace Assembly.Metro.Controls.PageTemplates.Games.Components.MetaData
 		{
 			_highlighter(field, _highlightLevel > 0);
 		}
-	}
+
+        public void VisitPackedInt(PackedIntData field)
+        {
+            FilterString(field, field.Name);
+            foreach (var @int in field.Ints)
+            {
+                if (FilterString(field, @int.Name))
+                    return;
+            }
+        }
+    }
 }

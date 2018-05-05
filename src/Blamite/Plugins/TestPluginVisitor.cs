@@ -238,5 +238,36 @@ namespace Blamite.Plugins
 		{
 			Debug.WriteLine("Unicode string list \"{0}\" at {1}, visible = {2}, languages = {3}", name, offset, visible, languages);
 		}
-	}
+
+        public bool EnterPackedInt8(string name, uint offset, bool visible, uint pluginLine)
+        {
+            PrintBasicValue("PackedInt8", name, offset, visible);
+            Debug.Indent();
+            return true;
+        }
+
+        public bool EnterPackedInt16(string name, uint offset, bool visible, uint pluginLine)
+        {
+            PrintBasicValue("PackedInt16", name, offset, visible);
+            Debug.Indent();
+            return true;
+        }
+
+        public bool EnterPackedInt32(string name, uint offset, bool visible, uint pluginLine)
+        {
+            PrintBasicValue("PackedInt32", name, offset, visible);
+            Debug.Indent();
+            return true;
+        }
+
+        public void VisitPackedInt(string name, int offset, int count, bool signed)
+        {
+            Debug.WriteLine("PackedInt \"{0}\" at position {1}", name, offset, count, signed);
+        }
+
+        public void LeavePackedInt()
+        {
+            Debug.Unindent();
+        }
+    }
 }

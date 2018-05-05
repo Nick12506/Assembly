@@ -470,5 +470,28 @@ namespace Blamite.Injection
 			var baseOffset = _cacheFile.MetaArea.PointerToOffset(block.OriginalAddress);
 			_reader.SeekTo(baseOffset + offset);
 		}
-	}
+
+        public bool EnterPackedInt8(string name, uint offset, bool visible, uint pluginLine)
+        {
+            return false;
+        }
+
+        public bool EnterPackedInt16(string name, uint offset, bool visible, uint pluginLine)
+        {
+            return false;
+        }
+
+        public bool EnterPackedInt32(string name, uint offset, bool visible, uint pluginLine)
+        {
+            return false;
+        }
+
+        public void VisitPackedInt(string name, int offset, int count, bool signed)
+        {
+        }
+
+        public void LeavePackedInt()
+        {
+        }
+    }
 }

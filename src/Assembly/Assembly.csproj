@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Assembly</RootNamespace>
     <AssemblyName>Assembly</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -1154,6 +1154,10 @@
     <Compile Include="Metro\Controls\AvalonDockMetro\Vectors\VTabGroup.xaml.cs">
       <DependentUpon>VTabGroup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Metro\Controls\PageTemplates\Games\Components\MetaComponents\PackedIntValue.xaml.cs">
+      <DependentUpon>PackedIntValue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Metro\Controls\PageTemplates\Games\Components\MetaData\PackedIntData.cs" />
     <Compile Include="Metro\Controls\PageTemplates\ImgurHistoryPage.xaml.cs">
       <DependentUpon>ImgurHistoryPage.xaml</DependentUpon>
     </Compile>
@@ -1602,6 +1606,10 @@
     <Page Include="Metro\Controls\OtherMetroTabs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Metro\Controls\PageTemplates\Games\Components\MetaComponents\PackedIntValue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Metro\Controls\PageTemplates\ImgurHistoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>

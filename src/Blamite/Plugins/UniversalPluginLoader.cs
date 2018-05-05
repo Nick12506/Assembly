@@ -385,40 +385,40 @@ namespace Blamite.Plugins
 			visitor.VisitUtf16(name, offset, visible, size, pluginLine);
 		}
 
-		private static void ReadBits(XmlReader reader, IPluginVisitor visitor)
-		{
-			XmlReader subtree = reader.ReadSubtree();
+        private static void ReadBits(XmlReader reader, IPluginVisitor visitor)
+        {
+            XmlReader subtree = reader.ReadSubtree();
 
-			subtree.ReadStartElement();
-			while (subtree.Read())
-			{
-				if (subtree.NodeType == XmlNodeType.Element)
-				{
-					if (subtree.Name == "bit" || subtree.Name == "option")
-						ReadBit(subtree, visitor);
-					else
-						throw new ArgumentException("Unknown bit definition tag: " + subtree.Name + PositionInfo(reader));
-				}
-			}
+            subtree.ReadStartElement();
+            while (subtree.Read())
+            {
+                if (subtree.NodeType == XmlNodeType.Element)
+                {
+                    if (subtree.Name == "bit" || subtree.Name == "option")
+                        ReadBit(subtree, visitor);
+                    else
+                        throw new ArgumentException("Unknown bit definition tag: " + subtree.Name + PositionInfo(reader));
+                }
+            }
 
-			visitor.LeaveBitfield();
-		}
+            visitor.LeaveBitfield();
+        }
 
-		private static void ReadBit(XmlReader reader, IPluginVisitor visitor)
-		{
-			string name = "Unknown";
-			int index = 0;
+        private static void ReadBit(XmlReader reader, IPluginVisitor visitor)
+        {
+            string name = "Unknown";
+            int index = 0;
 
-			if (reader.MoveToAttribute("name"))
-				name = reader.Value;
-			if (!reader.MoveToAttribute("index") && !reader.MoveToAttribute("value"))
-				throw new ArgumentException("Bit definitions must have an index" + PositionInfo(reader));
-			index = ParseInt(reader.Value);
+            if (reader.MoveToAttribute("name"))
+                name = reader.Value;
+            if (!reader.MoveToAttribute("index") && !reader.MoveToAttribute("value"))
+                throw new ArgumentException("Bit definitions must have an index" + PositionInfo(reader));
+            index = ParseInt(reader.Value);
 
-			visitor.VisitBit(name, index);
-		}
+            visitor.VisitBit(name, index);
+        }
 
-		private static void ReadRaw(XmlReader reader, string name, uint offset, bool visible, IPluginVisitor visitor,
+        private static void ReadRaw(XmlReader reader, string name, uint offset, bool visible, IPluginVisitor visitor,
 			uint pluginLine)
 		{
 			int size;
