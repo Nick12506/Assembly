@@ -40,7 +40,7 @@
 			<int name="offset" offset="0" count="10" />
 			<int name="count" offset="10" count="6" />
 		</packedint16>
-		<packedint16 name="Unknown Vectors" offset="0x2" visible="true"> <!-- Index 1 -->
+		<packedint16 name="Water Vectors" offset="0x2" visible="true"> <!-- Index 1 -->
 			<int name="offset" offset="0" count="10" />
 			<int name="count" offset="10" count="6" />
 		</packedint16>
@@ -96,6 +96,59 @@
 	<reflexive name="ArgumentMappings" offset="0x3C" visible="true" entrySize="0x4">
 		<uint16 name="RegisterIndex" offset="0x0" visible="true" />
 		<uint8 name="ArgumentIndex" offset="0x2" visible="true" />
+		<enum8 name="Render Method Extern" offset="0x2" visible="true">
+			<option name="none" value="0x00" />
+			<option name="texture_global_target_texaccum" value="0x01" />
+			<option name="texture_global_target_normal" value="0x02" />
+			<option name="texture_global_target_z" value="0x03" />
+			<option name="texture_global_target_shadow_buffer1" value="0x04" />
+			<option name="texture_global_target_shadow_buffer2" value="0x05" />
+			<option name="texture_global_target_shadow_buffer3" value="0x06" />
+			<option name="texture_global_target_shadow_buffer4" value="0x07" />
+			<option name="texture_global_target_texture_camera" value="0x08" />
+			<option name="texture_global_target_reflection" value="0x09" />
+			<option name="texture_global_target_refraction" value="0x0A" />
+			<option name="texture_lightprobe_texture" value="0x0B" />
+			<option name="texture_dominant_light_intensity_map" value="0x0C" />
+			<option name="texture_unused1" value="0x0D" />
+			<option name="texture_unused2" value="0x0E" />
+			<option name="object_change_color_primary" value="0x0F" />
+			<option name="object_change_color_secondary" value="0x10" />
+			<option name="object_change_color_tertiary" value="0x11" />
+			<option name="object_change_color_quaternary" value="0x12" />
+			<option name="object_change_color_quinary" value="0x13" />
+			<option name="object_change_color_primary_anim" value="0x14" />
+			<option name="object_change_color_secondary_anim" value="0x15" />
+			<option name="texture_dynamic_environment_map_0" value="0x16" />
+			<option name="texture_dynamic_environment_map_1" value="0x17" />
+			<option name="texture_cook_torrance_cc0236" value="0x18" />
+			<option name="texture_cook_torrance_dd0236" value="0x19" />
+			<option name="texture_cook_torrance_c78d78" value="0x1A" />
+			<option name="light_dir_0" value="0x1B" />
+			<option name="light_color_0" value="0x1C" />
+			<option name="light_dir_1" value="0x1D" />
+			<option name="light_color_1" value="0x1E" />
+			<option name="light_dir_2" value="0x1F" />
+			<option name="light_color_2" value="0x20" />
+			<option name="light_dir_3" value="0x21" />
+			<option name="light_color_3" value="0x22" />
+			<option name="texture_unused_3" value="0x23" />
+			<option name="texture_unused_4" value="0x24" />
+			<option name="texture_unused_5" value="0x25" />
+			<option name="texture_dynamic_light_gel_0" value="0x26" />
+			<option name="flat_envmap_matrix_x" value="0x27" />
+			<option name="flat_envmap_matrix_y" value="0x28" />
+			<option name="flat_envmap_matrix_z" value="0x29" />
+			<option name="debug_tint" value="0x2A" />
+			<option name="screen_constants" value="0x2B" />
+			<option name="active_camo_distortion_texture" value="0x2C" />
+			<option name="scene_ldr_texture" value="0x2D" />
+			<option name="scene_hdr_texture" value="0x2E" />
+			<option name="water_memory_export_address" value="0x2F" />
+			<option name="tree_animation_timer" value="0x30" />
+			<option name="emblem_player_shoulder_texture" value="0x31" />
+			<option name="emblem_clan_chest_textur" value="0x32" />
+		</enum8>
 		<uint8 name="Unknown" offset="0x3" visible="false" />
 	</reflexive>
 	<reflexive name="Arguments" offset="0x48" visible="true" entrySize="0x4">
