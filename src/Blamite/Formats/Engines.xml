@@ -130,6 +130,18 @@
 		</databases>
 	</engine>
 
+	<engine name="Halo: Reach PC Flight 2" version="Jul 30 2019 14:17:16">
+		<shortName>ReachPC</shortName>
+		<plugins>ReachPC</plugins>
+		<engineInfo>
+			<headerSize>0xA000</headerSize>
+			<segmentAlignment>0x1000</segmentAlignment>
+		</engineInfo>
+		<databases>
+			<layouts type="layouts" path="Formats/ReachPC/Layouts" />
+		</databases>
+	</engine>
+
 	<!-- Halo 4 Beta builds -->
 	<engine name="Halo 4 Network Test" version="14064.12.05.05.1011.beta">
 		<shortName>H4Network</shortName>
