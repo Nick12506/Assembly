@@ -31,6 +31,12 @@ namespace Blamite.Blam
                 // Read third-generation build string
                 reader.SeekTo(0x11C);
                 BuildString = reader.ReadAscii();
+
+				if (string.IsNullOrEmpty(BuildString)) {
+					reader.SeekTo(0x120);
+					BuildString = reader.ReadAscii();
+					Engine = EngineType.ThirdGenMCC;
+				}
             }
             if (Version >= FourthGenVersion)
             {

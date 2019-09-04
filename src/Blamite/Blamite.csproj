@@ -220,8 +220,11 @@
     <Compile Include="Blam\ThirdGen\Resources\ThirdGenResourceManager.cs" />
     <Compile Include="Blam\ThirdGen\Shaders\ThirdGenShader.cs" />
     <Compile Include="Blam\ThirdGen\Shaders\ThirdGenShaderStreamer.cs" />
+    <Compile Include="Blam\ThirdGen\Structures\NewThirdGenHeader.cs" />
+    <Compile Include="Blam\ThirdGen\Structures\NewThirdGenTag.cs" />
     <Compile Include="Blam\ThirdGen\Structures\ThirdGenInteropSection.cs" />
     <Compile Include="Blam\ThirdGen\Structures\ThirdGenSimulationDefinitionTable.cs" />
+    <Compile Include="Blam\ThirdGen\Structures\NewThirdGenTagTable.cs" />
     <Compile Include="Blam\ThirdGen\Structures\ThirdGenZoneSetTable.cs" />
     <Compile Include="Blam\ThirdGen\Structures\ThirdGenResourceLayoutTable.cs" />
     <Compile Include="Blam\ThirdGen\Resources\Models\ThirdGenModelPermutation.cs" />
@@ -235,7 +238,9 @@
     <Compile Include="Blam\ThirdGen\Resources\ThirdGenResourceMetaLoader.cs" />
     <Compile Include="Blam\ThirdGen\Structures\ThirdGenScenarioScriptFile.cs" />
     <Compile Include="Blam\ThirdGen\Structures\ThirdGenZoneSet.cs" />
+    <Compile Include="Blam\ThirdGen\NewThirdGenCacheFile.cs" />
     <Compile Include="Blam\Util\MetaAllocator.cs" />
+    <Compile Include="Blam\Util\NewPointerConverter.cs" />
     <Compile Include="Blam\Util\ReflexiveCache.cs" />
     <Compile Include="Blam\Util\ReflexiveReader.cs" />
     <Compile Include="Blam\Util\ReflexiveWriter.cs" />
@@ -587,6 +592,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Formats\ReachBeta\Layouts\ReachBeta_Layouts_Shaders.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Formats\ReachPC\Layouts\ReachPC_Layout_Core.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Formats\Reach\Layouts\Reach_Layouts_Shaders.xml">

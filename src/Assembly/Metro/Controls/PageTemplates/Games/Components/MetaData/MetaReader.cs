@@ -5,6 +5,7 @@ using Blamite.Blam;
 using Blamite.Serialization;
 using Blamite.IO;
 using Blamite.Util;
+using Blamite.Blam.Util;
 
 namespace Assembly.Metro.Controls.PageTemplates.Games.Components.MetaData
 {
@@ -325,8 +326,11 @@ namespace Assembly.Metro.Controls.PageTemplates.Games.Components.MetaData
 			var length = (int) values.GetInteger("entry count");
 			uint pointer = values.GetInteger("pointer");
 
+			if (_cache.Engine == EngineType.ThirdGenMCC) pointer = NewPointerConverter.ConvertToPointer(pointer);
+
+
 			// Make sure the pointer looks valid
-			if (length < 0)
+			if (length < 0 || !_cache.MetaArea.ContainsTagBlockPointer(pointer, (int)(length * field.EntrySize)))
 			{
 				length = 0;
 				pointer = 0;

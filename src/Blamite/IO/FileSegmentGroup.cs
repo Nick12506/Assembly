@@ -138,6 +138,19 @@ namespace Blamite.IO
 			return ((uint) (pointer + size) >= pointer && pointer >= basePointer && pointer + size <= basePointer + Size);
 		}
 
+		public bool ContainsTagBlockPointer(uint pointer, int size)
+		{
+			if (Segments.Count == 0)
+				return false;
+
+			uint basePointer = BasePointer;
+			bool val1 = (uint)(pointer + size) >= pointer;
+			bool val2 = pointer >= basePointer;
+			bool val3 = pointer + size <= basePointer + Size;
+			bool val = val1 && val2 && val3;
+			return val;
+		}
+
 		/// <summary>
 		///     Returns whether or not a given offset falls inside the group.
 		/// </summary>

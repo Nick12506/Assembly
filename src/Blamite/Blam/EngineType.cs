@@ -5,9 +5,10 @@
 	/// </summary>
 	public enum EngineType
 	{
-		FirstGeneration, // H1
-		SecondGeneration, // H2
-		ThirdGeneration, // H3, Reach, H4
-        FourthGeneration // HO
+		FirstGeneration,	// H1
+		SecondGeneration,	// H2
+		ThirdGeneration,	// H3, Reach, H4
+		ThirdGenMCC,		// Reach PC
+        FourthGeneration	// HO
 	}
 }

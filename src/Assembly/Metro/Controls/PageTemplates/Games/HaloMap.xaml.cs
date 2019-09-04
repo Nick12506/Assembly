@@ -241,6 +241,7 @@ namespace Assembly.Metro.Controls.PageTemplates.Games
 						break;
 
 					case EngineType.ThirdGeneration:
+					case EngineType.ThirdGenMCC:
 						//_rteProvider = new XBDMRTEProvider(App.AssemblyStorage.AssemblySettings.Xbdm);
                         _mapManager = new FileStreamManager(_cacheLocation, map_reader.Endianness);
                         _stringidsManager= null;
@@ -307,7 +308,7 @@ namespace Assembly.Metro.Controls.PageTemplates.Games
 
 				LoadHeader();
 				LoadTags();
-				LoadLocales();
+				//LoadLocales();
 				LoadScripts();
 			}
 		}
