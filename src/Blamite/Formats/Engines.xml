@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <engines>
 	<!-- Blamite Engine Information Database -->
 	<!-- Only edit this if you know what you're doing! -->
@@ -130,6 +130,20 @@
 		</databases>
 	</engine>
 
+	<!-- Halo: MCC PC Flight builds -->
+	
+	<engine name="Halo: Reach PC Flight 1" version="Jun 24 2019 00:36:03">
+		<shortName>ReachPC</shortName>
+		<plugins>ReachPC</plugins>
+		<engineInfo>
+			<headerSize>0xA000</headerSize>
+			<segmentAlignment>0x1000</segmentAlignment>
+		</engineInfo>
+		<databases>
+			<layouts type="layouts" path="Formats/ReachPC/Layouts" />
+		</databases>
+	</engine>
+	
 	<engine name="Halo: Reach PC Flight 2" version="Jul 30 2019 14:17:16">
 		<shortName>ReachPC</shortName>
 		<plugins>ReachPC</plugins>
